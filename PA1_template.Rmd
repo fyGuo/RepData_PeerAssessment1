@@ -26,6 +26,9 @@ df$date<-as.Date(df$date)
 stepd<-tapply(df$steps,df$date,sum,na.rm=T)
 stepd<-as.data.frame(stepd)  
 names(stepd)<-c("step")
+```
+
+```{r}
 ggplot(stepd,aes(x=step))+geom_histogram()
 ```
 

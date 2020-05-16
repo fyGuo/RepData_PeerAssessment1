@@ -26,6 +26,10 @@ df$date<-as.Date(df$date)
 stepd<-tapply(df$steps,df$date,sum,na.rm=T)
 stepd<-as.data.frame(stepd)  
 names(stepd)<-c("step")
+```
+
+
+```r
 ggplot(stepd,aes(x=step))+geom_histogram()
 ```
 
@@ -33,7 +37,7 @@ ggplot(stepd,aes(x=step))+geom_histogram()
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
 
 
 ```r
@@ -53,7 +57,7 @@ stepi<-data.frame(interval=unique(df$interval),steps=stepi$stepi)
 ggplot(stepi,aes(x=interval,y=steps))+geom_line(size=1.0)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
 
 ```r
 int<-stepi[order(stepi$steps,decreasing = TRUE),][1,][1]
@@ -87,7 +91,7 @@ ggplot(newstepd,aes(x=step))+geom_histogram()
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
 
 
 ```r
@@ -121,6 +125,6 @@ stepi<-rbind(stepi1,stepi2)
 ggplot(stepi,aes(x=interval,y=steps))+geom_line(size=1.0)+facet_grid(week~.)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
 
 So it could be seen above, that steps in weekdays are generally more in weekends. Besides, the variation in weekdays are larger than in weekend.
